@@ -1,0 +1,28 @@
+{
+  "name": "memory-card-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack --config webpack.config.js",
+    "watch": "npx webpack --config webpack.config.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazanqwaider/memory-card-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yazanqwaider/memory-card-game/issues"
+  },
+  "homepage": "https://github.com/yazanqwaider/memory-card-game#readme",
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
