@@ -1,4 +1,5 @@
 const getImagesList = require('./generateImagesList');
+const config = require('./config');
 
 const IMAGES_COUNT = 19;
 const REQUIRED_IMAGES = 6;
@@ -13,7 +14,7 @@ module.exports = function() {
             for (let i = 0; i < this.images.length; i++) {
                 gridItems+= `
                     <div class="grid-item black-cover" data-imgId="${this.images[i]}">
-                        <img src="/assets/images/${this.images[i]}.jpg" />
+                        <img src="${config.prefixURL()}/assets/images/${this.images[i]}.jpg" />
                         <p class="centralize-text">Img</p>
                     </div>
                 `;
