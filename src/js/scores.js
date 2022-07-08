@@ -24,6 +24,10 @@ export default function() {
                     let targetCards = document.querySelectorAll(`[data-imgId="${selected_item}"]`);
                     setTimeout(() => {
                         targetCards.forEach(targetCard => removeCard(targetCard));
+
+                        if(scores == 6) {
+                            alert('You win :)');
+                        }
                     }, 1000);
                 }
              
