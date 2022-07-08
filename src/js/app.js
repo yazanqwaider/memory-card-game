@@ -1,6 +1,9 @@
-import generateRandomImages from './images';
+const generateRandomImages = require('./images');
+import trackGridMoves from './scores';
 
 window.onload = function() {
-    generateRandomImages();
 
+    document.querySelector('#cards-container').innerHTML = generateRandomImages().generateHtmlGrid();
+
+    trackGridMoves();
 }

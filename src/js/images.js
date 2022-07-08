@@ -1,54 +1,25 @@
-import trackGridMoves from './scores';
+const getImagesList = require('./generateImagesList');
 
-export default function() {
-    const IMAGES_COUNT = 19;
+const IMAGES_COUNT = 19;
+const REQUIRED_IMAGES = 6;
+let randomImageIndex = Math.round(Math.random() * IMAGES_COUNT);
 
-    let grid = new Array(4);
-    for (let i = 0; i < grid.length; i++) {
-        grid[i] = new Array(grid.length);
-    }
+module.exports = function() {
+    return {
+        images: getImagesList(randomImageIndex, REQUIRED_IMAGES),
 
-
-    let img_index = getRandomImageIndex();
-    let count = 0;
-    let images = [];
-    while(count < 6) {
-        images.push(img_index);
-        img_index = (img_index > 6)? 1 : img_index + 1;
-        count++;
-    }
-
-    images = shuffleImages([...images, ...images]);
-    document.querySelector('#cards-container').innerHTML = generateHtmlGrid(images);
-    trackGridMoves();
-
-    function getRandomImageIndex() {
-        return Math.round(Math.random() * IMAGES_COUNT);
-    }
-
-    function shuffleImages(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
+        generateHtmlGrid: function() {
+            let gridItems = ``;
+            for (let i = 0; i < this.images.length; i++) {
+                gridItems+= `
+                    <div class="grid-item black-cover" data-imgId="${this.images[i]}">
+                        <img src="/assets/images/${this.images[i]}.jpg" />
+                        <p class="centralize-text">Img</p>
+                    </div>
+                `;
+            }
+    
+            return gridItems;
         }
-        return array;
     }
-
-
-    function generateHtmlGrid(images) {
-        let gridItems = ``;
-        for (let i = 0; i < images.length; i++) {
-            gridItems+= `
-                <div class="grid-item black-cover" data-imgId="${images[i]}">
-                    <img src="/assets/images/${images[i]}.jpg" />
-                    <p class="centralize-text">Img</p>
-                </div>
-            `;
-        }
-
-        return gridItems;
-    }
-
 }
