@@ -21,8 +21,6 @@ export default function() {
     images = shuffleImages([...images, ...images]);
     document.querySelector('#cards-container').innerHTML = generateHtmlGrid(images);
     trackGridMoves();
-    console.log(images);
-
 
     function getRandomImageIndex() {
         return Math.round(Math.random() * IMAGES_COUNT);
@@ -43,8 +41,9 @@ export default function() {
         let gridItems = ``;
         for (let i = 0; i < images.length; i++) {
             gridItems+= `
-                <div class="grid-item" data-imgId="${images[i]}">
+                <div class="grid-item black-cover" data-imgId="${images[i]}">
                     <img src="/assets/images/${images[i]}.jpg" />
+                    <p class="centralize-text">Img</p>
                 </div>
             `;
         }

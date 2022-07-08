@@ -1,1 +1,6 @@
-import "./general.js";
+import generateRandomImages from './images';
+
+window.onload = function() {
+    generateRandomImages();
+
+}

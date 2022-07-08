@@ -11,7 +11,37 @@
     display: grid
     grid-template-columns: 265px 265px 265px 265px
     grid-template-rows: 265px 265px 265px 265px
+    
+
+    .grid-item
+        position: relative
+        transform: rotateY(0deg)
+        transition: 0.8s
+
+        .centralize-text
+            display: none
 
     .grid-item, img
         width: 100%
         height: 100%
+        transition: 0.8s
+
+
+    .black-cover
+        transform: rotateY(180deg)
+
+        img
+            filter: brightness(0.0)
+
+        .centralize-text
+            display: block
+            position: absolute
+            color: #f1f1f1
+            z-index: 10
+            top: 34%
+            left: 43%
+            font-size: 25px
+            transform: rotateY(180deg)
+            font-family: cursive
+            font-style: italic
+            text-shadow: 2px 2px 5px #c33737
